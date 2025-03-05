@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEVIRSLEEP Interface</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpolygon points='8,2 14,14 2,14' fill='%23FF4800'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <a href="/">
+        <div class="logo">NVRSLP</div>
+      </a>
+      <div class="status">SYSTEM STATUS: NORMAL</div>
+      <div class="time">T-MINUS 21:15:37</div>
+    </header>
+    
+    <main>
+      <div id="sphere-container"></div>
+      <div class="holo-hud" id="holo-hud">
+        <div class="holo-text" id="holo-transmission">INCOMING TRANSMISSION: 0xFF874A</div>
+        <div class="holo-text" id="holo-coordinates">COORDINATES: X:45.3 Y:-12.7 Z:0.0</div>
+        <div class="holo-text integrity" id="holo-integrity">SYSTEM INTEGRITY: 92%</div>
+        <div class="holo-text signal" id="holo-signal">SIGNAL: -45 dB</div>
+        <div class="holo-text energy" id="holo-energy">ENERGY: 78%</div>
+        <div class="pulse-dots">
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+          <div class="pulse-dot"></div>
+        </div>
+      </div>
+      <div class="map-toggle" id="map-toggle">
+        <select id="planet-select">
+          <option value="sun">Sun</option>
+          <option value="mercury">Mercury</option>
+          <option value="venus">Venus</option>
+          <option value="earth" selected>Earth</option>
+          <option value="mars">Mars</option>
+          <option value="jupiter">Jupiter</option>
+          <option value="saturn">Saturn</option>
+          <option value="uranus">Uranus</option>
+          <option value="neptune">Neptune</option>
+          <option value="moon">Moon</option>
+        </select>
+      </div>
+      
+      <div id="crosshair-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; display: flex; justify-content: center; align-items: center;">
+        <div style="position: relative; width: clamp(150px, 50vw, 300px); height: clamp(150px, 50vw, 300px);">
+          <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: rgba(255, 72, 0, 0.7); transform: translateY(-50%);"></div>
+          <div style="position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background-color: rgba(255, 72, 0, 0.7); transform: translateX(-50%);"></div>
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 2px solid rgba(255, 72, 0, 0.4); border-radius: 50%;"></div>
+          <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%; border: 1px solid rgba(255, 72, 0, 0.3); border-radius: 50%;"></div>
+          <div style="position: absolute; top: 20%; left: 20%; width: 60%; height: 60%; border: 1px solid rgba(255, 72, 0, 0.2); border-radius: 50%;"></div>
+        </div>
+      </div>
+      <div class="scan-progress" id="scan-progress">
+        <svg>
+          <circle cx="150" cy="150" r="120" id="progress-circle"></circle>
+        </svg>
+        <div class="progress-percentage" id="progress-percentage">0%</div>
+      </div>
+      <div class="scan-lines" id="scan-lines"></div>
+      <div class="analyze-grid" id="analyze-grid">
+        <div class="analyze-percentage" id="analyze-percentage">0%</div>
+      </div>
+      
+      <div class="mini-hud" id="mini-hud">
+        <div class="holo-text">ENERGY LEVELS</div>
+        <div class="energy-bar">
+          <div class="energy-fill" id="energy-fill"></div>
+        </div>
+        <div class="mini-graph">
+          <canvas id="signal-chart"></canvas>
+        </div>
+        <div class="resource-chart">
+          <canvas id="resource-chart"></canvas>
+        </div>
+      </div>
+    </main>
+    
+    <aside>
+      <div class="data-panel">
+        <div class="data-section">
+          <h3>SPHERE ANALYSIS</h3>
+          <div class="status-bar">
+            <div class="status-fill"></div>
+          </div>
+          <div class="data-grid">
+            <div class="data-item">
+              <span class="data-label">RADIUS:</span>
+              <span class="data-value">2.35m</span>
+              <div class="tooltip">Calculated via MAGI sensor array</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">DENSITY:</span>
+              <span class="data-value">5.67g/cm³</span>
+              <div class="tooltip">Derived from mass spectrometry</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">TEMP:</span>
+              <span class="data-value">26.8°C</span>
+              <div class="tooltip">Thermal scan average</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">MASS:</span>
+              <span class="data-value">189.4kg</span>
+              <div class="tooltip">Gravitational pull estimate</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">PATTERN:</span>
+              <span class="data-value">BLUE</span>
+              <div class="tooltip">Spectral analysis result</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">ROTATION:</span>
+              <span class="data-value">8.7°/s</span>
+              <div class="tooltip">Doppler shift measurement</div>
+            </div>
+          </div>
+          <div class="warning" id="warning-text">WARNING: UNUSUAL ENERGY SIGNATURE DETECTED</div>
+        </div>
+        
+        <div class="data-section">
+          <h3>CONFIGURATION</h3>
+          <div class="hexagon-grid">
+            <div class="hexagon active" title="Toggle rotation speed (slow/fast/stop)"></div>
+            <div class="hexagon active" title="Toggle crosshair and orbital path (off/on)"></div>
+            <div class="hexagon active" title="Toggle texture visibility (off/on)"></div>
+            <div class="hexagon" title="Toggle wireframe visibility (off/on)"></div>
+            <div class="hexagon active" title="Reset all settings"></div>
+            <div class="hexagon active" title="Toggle HUD visibility (off/on)"></div>
+            <div class="hexagon active" title="Toggle shapes (sphere/tetrahedron/octahedron/dodecahedron/icosahedron/torus/pyramid)" id="shape-toggle"></div>
+          </div>
+          <div class="data-grid">
+            <div class="data-item">
+              <span class="data-label">SYNC:</span>
+              <span class="data-value">84.3%</span>
+              <div class="tooltip">Synchronization with MAGI</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">HARMONIC:</span>
+              <span class="data-value">NORMAL</span>
+              <div class="tooltip">Energy wave stability</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">WAVE:</span>
+              <span class="data-value">PATTERN-A</span>
+              <div class="tooltip">Detected waveform type</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">MODE:</span>
+              <span class="data-value">OBSERVATION</span>
+              <div class="tooltip">Current operational mode</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="data-section">
+          <h3>SPHERE CONTROLS</h3>
+          <div class="slider-container">
+            <label class="slider-label">Rotation Speed:</label>
+            <input type="range" min="0" max="0.01" step="0.001" value="0.001" id="rotation-slider" class="slider">
+          </div>
+          <div class="slider-container">
+            <label class="slider-label">Opacity:</label>
+            <input type="range" min="0" max="1" step="0.1" value="1" id="opacity-slider" class="slider">
+          </div>
+          <div class="slider-container">
+            <label class="slider-label">Shininess:</label>
+            <input type="range" min="0" max="100" step="1" value="10" id="shininess-slider" class="slider">
+          </div>
+        </div>
+        
+        <div class="data-section">
+          <h3>MAGI ANALYSIS</h3>
+          <div class="data-grid">
+            <div class="data-item">
+              <span class="data-label">MELCHIOR:</span>
+              <span class="data-value">CONFIRMED</span>
+              <div class="tooltip">First MAGI core status</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">BALTHASAR:</span>
+              <span class="data-value">CONFIRMED</span>
+              <div class="tooltip">Second MAGI core status</div>
+            </div>
+            <div class="data-item">
+              <span class="data-label">CASPER:</span>
+              <span class="data-value">ANALYZING...</span>
+              <div class="tooltip">Third MAGI core status</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="data-section">
+          <h3>DATA VISUALIZATION</h3>
+          <div class="data-chart">
+            <canvas id="temp-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="data-section">
+          <h3>DECRYPTOR</h3>
+          <div class="encrypted" id="encrypted-text">0xFF12AB4C</div>
+          <div class="decrypted" id="decrypted-text"></div>
+        </div>
+        
+        <div class="data-section">
+          <h3>TERMINAL</h3>
+          <div class="terminal">
+            <div class="terminal-content" id="terminal-content">
+              0xFF872A > INITIALIZING SCAN SEQUENCE<br>
+              0xFF872B > התחלת רצף סריקה (STARTING SCAN SEQUENCE)<br>
+              0xFF872C > CALIBRATING SENSORS<br>
+              0xFF872D > כיול חיישנים (SENSOR CALIBRATION)<br>
+              0xFF872E > ADJUSTING FOR ATMOSPHERIC INTERFERENCE<br>
+              0xFF872F > התאמה להפרעות אטמוספריות (ATMOSPHERIC ADJUSTMENT)<br>
+              0xFF8730 > DEPLOYING DETECTION GRID<br>
+              0xFF8731 > רשת זיהוי מופעלת (DETECTION GRID ACTIVE)<br>
+              0xFF8732 > SCANNING... 34%<br>
+              0xFF8733 > סריקה... 68% (SCANNING... 68%)<br>
+              0xFF8734 > SCANNING... 99%<br>
+              0xFF8735 > סריקה הושלמה (SCAN COMPLETE)<br>
+              0xFF8736 > ANALYZING RESULTS<br>
+              0xFF8737 > ניתוח תוצאות (ANALYSIS OF RESULTS)<br>
+              0xFF8738 > PATTERN MATCH: BLUE<br>
+              0xFF8739 > דפוס כחול זוהה (BLUE PATTERN DETECTED)<br>
+              0xFF873A > ALERT LEVEL: YELLOW<br>
+              0xFF873B > רמת התראה: צהוב (ALERT LEVEL: YELLOW)<br>
+              0xFF873C > INITIATING SECONDARY SCAN<br>
+              0xFF873D > סריקה משנית מופעלת (SECONDARY SCAN INITIATED)<br>
+              0xFF873E > SYNCHRONIZING WITH MAGI<br>
+              0xFF873F > סנכרון עם מאגי (SYNC WITH MAGI)<br>
+              0xFF8740 > CORE DETECTED<br>
+              0xFF8741 > ליבה זוהתה (CORE DETECTED)<br>
+              0xFF8742 > UNUSUAL ENERGY SIGNATURE FOUND<br>
+              0xFF8743 > חתימת אנרגיה חריגה (UNUSUAL ENERGY SIGNATURE)<br>
+              0xFF8744 > CROSS-REFERENCING DATABASE<br>
+              0xFF8745 > בדיקת מסד נתונים (DATABASE CHECK)<br>
+              0xFF8746 > NO MATCHES FOUND<br>
+              0xFF8747 > אין התאמות (NO MATCHES)<br>
+              0xFF8748 > AWAITING INSTRUCTIONS<br>
+              0xFF8749 > ממתין להוראות (AWAITING INSTRUCTIONS)<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <footer>
+      <div class="command-line">
+        <span class="command-prompt">NVRSLP></span>
+        <input type="text" id="command-input" class="command-input" placeholder="ENTER COMMAND..." />
+        <div class="network-status">NETWORK: <span class="latency" id="network-latency">42ms</span></div>
+        <div class="voice-indicator"></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
