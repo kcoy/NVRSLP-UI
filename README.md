@@ -62,8 +62,8 @@ npm run quantum-init
 ```
 ╔══════════════════════════╗
 ║  CLEARANCE: SECRET       ║
-║  PATTERN: BLUE           ║
-║  ACCESS: RESTRICTED      ║
+║  AUTH_KEY: ████████      ║
+║  VERSION: 1.0.0-alpha    ║
 ╚══════════════════════════╝
 ```
 
