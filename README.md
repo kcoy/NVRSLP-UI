@@ -1,42 +1,55 @@
-        ╔╗╔╦  ╦╦═╗╔═╗╦  ╔═╗
-        ║║║╚╗╔╝╠╦╝╚═╗║  ╠═╝
-        ╝╚╝ ╚╝ ╩╚═╚═╝╩═╝╩  
-    [ NEVIRSLEEP UI INTERFACE SYSTEM ]
-    [ VERSION 1.0.0 ALPHA BUILD ]
+░█▄░█░█░█░█▀▄░█▀▀░█░░░█▀▄
+░█░▀█░▀▄▀░█▀▄░▀▀█░█░░░█▀▀
+░▀░░▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀░░
 
-    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
-    │ A futuristic UI interface system inspired by sci-fi interfaces and holographic displays │
-    └─────────────────────────────────────────────────────────────────────────────────────────┘
+[QUANTUM INTERFACE SYSTEM]
+[BUILD: ALPHA-7 REV.1.0.0]
+==========================>
 
-    Features:
-    ▀▀▀▀▀▀▀▀▀
-    ► Real-time 3D sphere visualization
-    ► Dynamic holographic HUD elements
-    ► Interactive command terminal
-    ► Multi-language support (EN/HE)
-    ► MAGI system integration
-    ► Advanced data visualization
-    ► Responsive design elements
+███ SYSTEM STATUS
+╠══ CORE.............[ONLINE]
+╠══ NEURAL LINK......[ACTIVE]
+╠══ PATTERN..........[BLUE]
+╚══ THREAT...........[LOW]
 
-    Tech Stack:
-    ▀▀▀▀▀▀▀▀▀▀
-    ► HTML5
-    ► CSS3
-    ► JavaScript
-    ► Three.js
-    ► Chart.js
+███ CAPABILITIES 
+╠═╦═ VISUALIZATION
+║ ╠══ 3D Sphere Analysis
+║ ╠══ Holographic HUD
+║ ╚══ Pattern Detection
+╠═╦═ INTEGRATION
+║ ╠══ MAGI System
+║ ╠══ Neural Network
+║ ╚══ Quantum Core
+╚═╦═ INTERFACE
+  ╠══ Multi-Language
+  ╚══ Command Terminal
 
-    [STATUS: EXPERIMENTAL]
-    [CLEARANCE LEVEL: CLASSIFIED]
-    [PATTERN: BLUE]
-    
-    CLEARANCE: TOP SECRET
-    AUTH_KEY: ████████
-    VERSION: 1.0.0-alpha
+███ TECHNICAL SPECS
+╠══ [HTML5]     >> LOADED
+╠══ [CSS3]      >> LOADED
+╠══ [JS/ES6]    >> LOADED
+╠══ [Three.js]  >> LOADED
+╚══ [Chart.js]  >> LOADED
 
-    [MONITORING ACTIVE]
-    [PATTERN DETECTED]
-    [TRANSMISSION SECURE]
+███ QUICK START
+╠══ git clone NVRSLP-UI
+╠══ cd ./quantum-core
+╠══ npm install
+╚══ npm run initialize
 
-    © 2025 NVRSLP PROJECT
-    ALL RIGHTS RESERVE
+███ SECURITY
+╔════════════════════════╗
+║ CLASSIFIED MATERIALS   ║
+║ TOP SECRET CLEARANCE   ║
+║ PATTERN BLUE ACCESS    ║
+╚════════════════════════╝
+
+[SYS]: QUANTUM_CORE_ACTIVE
+[NET]: NEURAL_LINK_STABLE
+[SEC]: PATTERN_DETECTED
+
+     ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+     © 2025 NVRSLP LABS
+     ALL RIGHTS RESERVED
+     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
