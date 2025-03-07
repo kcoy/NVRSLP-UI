@@ -10,7 +10,7 @@
 ╚═╝  ╚═══╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     
 ```
 
-<h1 align="left">QUANTUM INTERFACE SYSTEM</h1>
+<h2 align="left">QUANTUM INTERFACE SYSTEM</h1>
 <p align="left">Version 1.0.0 | Build ALPHA-7</p>
 
 <div align="left">
