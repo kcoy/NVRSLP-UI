@@ -1,4 +1,4 @@
-<div align="left" width="100%">
+<div align="left" width="100%" padding: 10px;>
 
 <!-- Title ASCII Art -->
 ```
