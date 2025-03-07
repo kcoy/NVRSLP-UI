@@ -1,4 +1,4 @@
-<div align="center" width="100%">
+<div align="left" width="100%">
 
 <!-- Title ASCII Art -->
 ```
@@ -10,10 +10,10 @@
 ╚═╝  ╚═══╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     
 ```
 
-<h1 align="center">QUANTUM INTERFACE SYSTEM</h1>
-<p align="center">Version 1.0.0 | Build ALPHA-7</p>
+<h1 align="left">QUANTUM INTERFACE SYSTEM</h1>
+<p align="left">Version 1.0.0 | Build ALPHA-7</p>
 
-<div align="center">
+<div align="left">
 
 ```diff
 + [CORE SYSTEMS INITIALIZED]
@@ -69,7 +69,7 @@ npm run quantum-init
 
 <br>
 
-<div align="center">
+<div align="left">
 
 ```
 [CORE]: QUANTUM_MATRIX_STABLE
