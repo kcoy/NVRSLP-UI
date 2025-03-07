@@ -26,7 +26,7 @@
     animation: scanline 10slinear infinite;
 }
   #app {
-    position: absolute;
+    position: relative;
     top: 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
@@ -34,7 +34,6 @@
     height: 100vh;
     padding: 10px;
     grid-gap: 5px;
-    position: relative;
     z-index: 100;
   }
   
@@ -52,6 +51,13 @@
     align-items: center;
     border: 1px solid #333;
     padding: 10px 20px;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0px,
+      rgba(0, 0, 0, 0.4) 2px,
+      transparent 2px,
+      transparent 4px
+    ), rgba(0, 0, 0, 0.7);
   }
   
   @media (max-width: 480px) {
@@ -72,6 +78,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
+    animation: flicker 5s infinite;
   }
   
   .logo::before {
@@ -812,3 +819,187 @@
     animation: flicker 3s infinite;
   }
 
+  /* .biometric-scanner {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 240px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #333;
+    padding: 10px;
+    color: #00FFFF;
+    font-size: 0.8rem;
+  }
+
+  .scan-header {
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px #00FFFF;
+    animation: blink 2s infinite;
+  }
+
+  .scanner-window {
+    height: 120px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .scan-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0,
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0;
+    background-size: 10px 10px;
+  }
+
+  .scan-grid::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+
+      radial-gradient(circle at 50% 50%,
+        transparent 15%,
+        rgba(255, 255, 255, 0.3) 16%,
+        transparent 17%,
+        rgba(255, 255, 255, 0.3) 18%,
+        transparent 19%,
+        rgba(255, 255, 255, 0.3) 20%,
+        transparent 21%),
+
+      repeating-linear-gradient(45deg,
+        transparent,
+        transparent 8px,
+        rgba(255, 255, 255, 0.05) 8px,
+        rgba(255, 255, 255, 0.05) 16px);
+    animation: scan-pattern 8s linear infinite;
+    opacity: 0.9;
+  }
+
+  .scan-grid::after {
+    content: 'ANALYZING BIOPATTERN';
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 0.6rem;
+    color: rgba(0, 255, 255, 0.6);
+    text-shadow: 0 0 3px rgba(0, 255, 255, 0.8);
+    animation: blink 2s infinite;
+  }
+
+  @keyframes scan-pattern {
+    0% {
+      background-position: 0 0, 0 0, center, 0 0;
+      opacity: 0.3;
+    }
+    50% {
+      background-position: 5px 5px, 5px 5px, center, 10px 10px;
+      opacity: 0.6;
+    }
+    100% {
+      background-position: 0 0, 0 0, center, 0 0;
+      opacity: 0.3;
+    }
+  }
+
+  .scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 10px #00FFFF;
+    animation: scan-vertical 3s ease-in-out infinite;
+  }
+
+  .molecular-progress {
+    margin-top: 10px;
+  }
+
+  .molecule-chain {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .molecule-chain span {
+    width: 8px;
+    height: 8px;
+    background: #00FFFF;
+    border-radius: 50%;
+    animation: molecule-pulse 1.5s infinite;
+  }
+
+  .molecule-chain span:nth-child(2) { animation-delay: 0.3s; }
+  .molecule-chain span:nth-child(3) { animation-delay: 0.6s; }
+  .molecule-chain span:nth-child(4) { animation-delay: 0.9s; }
+
+  .molecule-chain span::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-2px, -2px);
+    animation: molecule-ring 2s infinite;
+  }
+
+  @keyframes molecule-ring {
+    0%, 100% {
+      transform: translate(-2px, -2px) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translate(-2px, -2px) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(0, 255, 255, 0.2);
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #FF4800;
+    width: 0%;
+    animation: progress-scan 6s ease-in-out infinite;
+    box-shadow: 0 0 10px #FF4800;
+  }
+
+  @keyframes scan-vertical {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(120px); }
+  }
+
+  @keyframes molecule-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.5); opacity: 1; }
+  }
+
+  @keyframes progress-scan {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+  }
+
+  @media (max-width: 768px) {
+    .biometric-scanner {
+      bottom: 70px;
+      left: 10px;
+      width: 160px;
+    }
+    
+    .scanner-window {
+      height: 100px;
+    }
+  }
+ */
