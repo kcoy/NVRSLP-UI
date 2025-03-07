@@ -1,62 +1,42 @@
         ╔╗╔╦  ╦╦═╗╔═╗╦  ╔═╗
         ║║║╚╗╔╝╠╦╝╚═╗║  ╠═╝
         ╝╚╝ ╚╝ ╩╚═╚═╝╩═╝╩  
-==================================
-    [INTERFACE BUILD 1.0.0]
-==================================
+    [ NEVIRSLEEP UI INTERFACE SYSTEM ]
+    [ VERSION 1.0.0 ALPHA BUILD ]
 
-    ┌────────────────────────────┐
-    │  SYSTEM STATUS: [ACTIVE]   │
-    │  PATTERN: [BLUE]          │
-    │  THREAT: [MINIMAL]        │
-    └────────────────────────────┘
+    ┌─────────────────────────────────────────────────────────────────────────────────────────┐
+    │ A futuristic UI interface system inspired by sci-fi interfaces and holographic displays │
+    └─────────────────────────────────────────────────────────────────────────────────────────┘
 
-----------------------------------
-|      INTERFACE PROTOCOLS       |
-----------------------------------
-> Holographic Display System
-> Sphere Analysis Module
-> Pattern Recognition v2.5
-> MAGI Integration Suite
-> Quantum Data Processing
-> Real-time Monitoring
+    Features:
+    ▀▀▀▀▀▀▀▀▀
+    ► Real-time 3D sphere visualization
+    ► Dynamic holographic HUD elements
+    ► Interactive command terminal
+    ► Multi-language support (EN/HE)
+    ► MAGI system integration
+    ► Advanced data visualization
+    ► Responsive design elements
 
-----------------------------------
-|        TECH MANIFEST          |
-----------------------------------
-* HTML5............[INSTALLED]
-* CSS3.............[INSTALLED]
-* JavaScript.......[INSTALLED]
-* Three.js.........[INSTALLED]
-* Chart.js.........[INSTALLED]
+    Tech Stack:
+    ▀▀▀▀▀▀▀▀▀▀
+    ► HTML5
+    ► CSS3
+    ► JavaScript
+    ► Three.js
+    ► Chart.js
 
-----------------------------------
-|       QUICK DEPLOYMENT        |
-----------------------------------
-1) git clone NVRSLP-UI
-2) cd ./NVRSLP-UI
-3) open index.html
-4) EXECUTE_SEQUENCE_ALPHA
+    [STATUS: EXPERIMENTAL]
+    [CLEARANCE LEVEL: CLASSIFIED]
+    [PATTERN: BLUE]
+    
+    CLEARANCE: TOP SECRET
+    AUTH_KEY: ████████
+    VERSION: 1.0.0-alpha
 
-----------------------------------
-|     EMERGENCY PROTOCOLS       |
-----------------------------------
-IF (PATTERN === BLUE) {
-    INITIATE_DEFENSE_MATRIX
-}
-
-----------------------------------
-|      ACCESS PROTOCOLS         |
-----------------------------------
-CLEARANCE: TOP SECRET
-AUTH_KEY: ████████
-VERSION: 1.0.0-alpha
-
-     [MONITORING ACTIVE]
-     [PATTERN DETECTED]
+    [MONITORING ACTIVE]
+    [PATTERN DETECTED]
     [TRANSMISSION SECURE]
 
-==================================
-   RESTRICTED ACCESS ONLY
-   © 2025 NVRSLP PROJECT
-==================================
+    © 2025 NVRSLP PROJECT
+    ALL RIGHTS RESERVE
