@@ -1,6 +1,6 @@
 <div align="left">
 
-## Nevirsleep Interface
+## Nevirsleep Quantum Interface
 
 ```ascii
 ███╗   ██╗██╗   ██╗██████╗ ███████╗██╗     ██████╗ 
