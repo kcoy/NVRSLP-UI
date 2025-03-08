@@ -83,8 +83,6 @@ npm run quantum-init
 
 ---
 
-<sub>© 2025 NVRSLP PROJECT - ALL RIGHTS RESERVED</sub>
-
 ## ⚠️ Emergency Procedures
 1. 👁️ Maintain visual contact
 2. 🔄 Initiate MAGI sync
@@ -104,32 +102,4 @@ npm run quantum-init
 
 </div>
 
-```css
-/* Custom CSS for GitHub README */
-.warning {
-  color: #ff4500;
-  background: #1a1a1a;
-  padding: 10px;
-  border-left: 4px solid #ff4500;
-}
-
-.classified {
-  background: #000;
-  color: #0f0;
-  font-family: monospace;
-  padding: 15px;
-  border: 1px solid #0f0;
-}
-
-.magi-status {
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 3px;
-  background: #001f3f;
-  color: #00ff00;
-}
-```
-
-[ACCESS LEVEL: RESTRICTED]  
-[MAGI CLEARANCE: REQUIRED]  
-[AUTHORIZATION: 0xFF874A]
+<sub>© 2025 NVRSLP PROJECT - ALL RIGHTS RESERVED</sub>
