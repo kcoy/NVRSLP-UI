@@ -1,6 +1,6 @@
-<div>
+<div align="left">
 
-# Nevirsleep Quantum Interface
+# 🌌 NVRSLP Interface 🌌
 
 ```ascii
 ███╗   ██╗██╗   ██╗██████╗ ███████╗██╗     ██████╗ 
@@ -11,7 +11,7 @@
 ╚═╝  ╚═══╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     
 ```
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/Status-ACTIVE-brightgreen?style=for-the-badge&logo=statuspage&logoColor=white" />
   <img src="https://img.shields.io/badge/Security%20Level-RESTRICTED-red?style=for-the-badge&logo=hackaday&logoColor=white" />
   <img src="https://img.shields.io/badge/MAGI-ONLINE-blue?style=for-the-badge&logo=molecular-modelling&logoColor=white" />
