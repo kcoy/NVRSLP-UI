@@ -51,6 +51,7 @@
     align-items: center;
     border: 1px solid #333;
     padding: 10px 20px;
+<<<<<<< HEAD
     background: repeating-linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.4) 0px,
@@ -58,6 +59,8 @@
       transparent 2px,
       transparent 4px
     ), rgba(0, 0, 0, 0.7);
+=======
+>>>>>>> 026b0e123f196bd851825f999047862cac922f27
   }
   
   @media (max-width: 480px) {
