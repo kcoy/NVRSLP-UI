@@ -26,7 +26,7 @@
     animation: scanline 10slinear infinite;
 }
   #app {
-    position: relative;
+    position: absolute;
     top: 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
@@ -34,6 +34,7 @@
     height: 100vh;
     padding: 10px;
     grid-gap: 5px;
+    position: relative;
     z-index: 100;
   }
   
@@ -51,16 +52,6 @@
     align-items: center;
     border: 1px solid #333;
     padding: 10px 20px;
-<<<<<<< HEAD
-    background: repeating-linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.4) 0px,
-      rgba(0, 0, 0, 0.4) 2px,
-      transparent 2px,
-      transparent 4px
-    ), rgba(0, 0, 0, 0.7);
-=======
->>>>>>> 026b0e123f196bd851825f999047862cac922f27
   }
   
   @media (max-width: 480px) {
@@ -81,7 +72,6 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    animation: flicker 5s infinite;
   }
   
   .logo::before {
@@ -587,10 +577,10 @@
     background: repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 6px,
-      #ff48009d 8px,
-      #5f5f5f85 10px,
-      transparent 12px,
+      transparent 10px,
+      #ff48009d 10px,
+      #5f5f5f85 13px,
+      transparent 13px,
       transparent 33px
     );
     animation: scan-lines-move 2s linear infinite;
@@ -822,64 +812,3 @@
     animation: flicker 3s infinite;
   }
 
-  .neural-network {
-    position: absolute;  /* Change to fixed */
-    bottom: 5px;    /* Keep bottom spacing */
-    right: 25px;     /* Keep right spacing */
-    width: 250px;
-    height: 220px;
-    /* background: rgba(0, 0, 0, 0.7); 
-    border: 1px solid #333; */
-    padding: 10px;
-    color: #00FFFF;
-    font-size: 0.8rem;
-    animation: blink 2s infinite;
-    z-index: 10;     /* Add z-index to ensure it stays on top */
-  }
-
-  .neural-header {
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    /* text-shadow: 0 0 5px #00FFFF; */
-    animation: value-pulse 3s infinite;
-  }
-
-  #neural-canvas {
-    width: 250px;
-    height: 140px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    animation: flicker 3s infinite;
-  }
-
-  .neural-stats {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    padding: 0 5px;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0.8rem;
-  }
-
-  .stat-label {
-    color: rgba(0, 255, 255, 0.6);
-    margin-bottom: 2px;
-  }
-
-  .stat-value {
-    color: #FF4800;
-    text-shadow: 0 0 3px rgba(255, 72, 0, 0.5);
-    animation: value-pulse 2s infinite;
-  }
-
- /*  @keyframes value-pulse {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; text-shadow: 0 0 5px rgba(255, 72, 0, 0.8); }
-  } */
