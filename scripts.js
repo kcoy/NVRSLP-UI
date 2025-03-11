@@ -393,11 +393,12 @@ const defaultSettings = {
 
     const warningText = document.getElementById('warning-text');
     const warnings = [
-      "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED",
-      "ALERT: GRAVITATIONAL ANOMALY DETECTED",
-      "CAUTION: THERMAL SPIKE DETECTED",
-      "ERROR: UNKNOWN SIGNAL INTERFERENCE",
-      "NOTICE: CORE STABILITY FLUCTUATING"
+      "ALERT: GRAVITATIONAL ANOMALY DETECTED, ORBITAL STABILITY AT RISK",
+      "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED, SHIELD INTEGRITY COMPROMISED",
+      "CAUTION: THERMAL SPIKE DETECTED, CORE STABILITY AT RISK",
+      "ERROR: UNKNOWN SIGNAL INTERFERENCE, COMMUNICATIONS OFFLINE",
+      "NOTICE: CORE STABILITY FLUCTUATING, ENERGY LEVELS CRITICAL",
+      "SCANNING... 34%, SCANNING... 69%, ANALYZING... 100%"
     ];
     let currentWarningIndex = 0;
     let currentText = '';
@@ -791,9 +792,12 @@ new Chart(resourceCtx, {
     const encryptedText = document.getElementById('encrypted-text');
     const decryptedText = document.getElementById('decrypted-text');
     const messages = [
-      { encrypted: "0xFF12AB4C", decrypted: "ALERT: INCOMING MESSAGE" },
-      { encrypted: "0xA1B2C3D4", decrypted: "SYSTEM: CORE STABLE" },
-      { encrypted: "0xE5F67489", decrypted: "WARNING: HIGH ENERGY" }
+      { encrypted: "0xFF12AB4C", decrypted: "ALERT: GRAVITATIONAL ANOMALY DETECTED, ORBITAL STABILITY AT RISK" },
+      { encrypted: "0xA1B2C3D4", decrypted: "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED, SHIELD INTEGRITY COMPROMISED" },
+      { encrypted: "0xE5F67489", decrypted: "CAUTION: THERMAL SPIKE DETECTED, CORE STABILITY AT RISK" },
+      { encrypted: "0xA1B2C345", decrypted: "ERROR: UNKNOWN SIGNAL INTERFERENCE, COMMUNICATIONS OFFLINE" },
+      { encrypted: "0xH2F67189", decrypted: "NOTICE: CORE STABILITY FLUCTUATING, ENERGY LEVELS CRITICAL" },
+      { encrypted: "0xH2F67189", decrypted: "SCANNING... 34%, SCANNING... 69%, ANALYZING... 100%" },
     ];
     let currentMessageIndex = 0;
     let currentCharIndex = 0;
@@ -832,7 +836,92 @@ new Chart(resourceCtx, {
     animate();
 
     console.log('Running on:', window.location.href);
-    console.log('Note: Request temp access at https://cors-anywhere.herokuapp.com/ for textures.');
-    console.log('Audio: Button sound (https://www.soundjay.com/buttons/beep-21.mp3) on hexagon click');
-    console.log('Audio: Scan/Analyze sound (https://www.soundjay.com/mechanical/freezer-hum-1.mp3) on SCAN/ANALYZE command, plays for 5 seconds');
-    console.log('Audio: Scan/Analyze complete sound (https://www.soundjay.com/mechanical/camera-shutter-click-01.mp3) after scan/analysis finishes');
+    console.log('Note: To see planet textures request temp access via https://cors-anywhere.herokuapp.com/');
+
+function initNeuralNetwork() {
+  const canvas = document.getElementById('neural-canvas');
+  const ctx = canvas.getContext('2d');
+  
+  // Set canvas size with proper scaling
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  
+  const nodes = [];
+  const connections = [];
+  
+  // Create nodes
+  for (let i = 0; i < 15; i++) {
+    nodes.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      speed: Math.random() * 0.5 + 0.1
+    });
+  }
+  
+  // Create connections
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      if (Math.random() > 0.25) {
+        connections.push([i, j]);
+      }
+    }
+  }
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Update and draw connections
+    ctx.beginPath();
+    connections.forEach(([i, j]) => {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 100) {
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        
+        const alpha = 1 - distance / 100;
+        ctx.strokeStyle = `rgba(0, 255, 255, ${alpha * 0.2})`;
+        ctx.stroke();
+      }
+    });
+    
+    // Update and draw nodes
+    nodes.forEach(node => {
+      node.x += Math.sin(Date.now() * 0.001 * node.speed) * 0.1;
+      node.y += Math.cos(Date.now() * 0.001 * node.speed) * 0.1;
+      
+      if (node.x < 0) node.x = canvas.width;
+      if (node.x > canvas.width) node.x = 0;
+      if (node.y < 0) node.y = canvas.height;
+      if (node.y > canvas.height) node.y = 0;
+      
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#FF4800';
+      ctx.fill();
+    });
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  // Update stats periodically
+  setInterval(() => {
+    document.getElementById('active-nodes').textContent = 
+      (2000 + Math.floor(Math.random() * 1000)).toLocaleString();
+    document.getElementById('active-synapses').textContent = 
+      (12000 + Math.floor(Math.random() * 2000)).toLocaleString();
+    document.getElementById('neural-efficiency').textContent = 
+      (90 + Math.random() * 9.9).toFixed(1) + '%';
+  }, 2000);
+}
+
+// Add this to your existing window.onload or initialization code
+window.addEventListener('load', initNeuralNetwork);
