@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -281,5 +287,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="scripts.js"></script>
+  <Analytics />
 </body>
 </html>
