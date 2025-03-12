@@ -1,20 +1,19 @@
 <div align="center">
-
+  
 ```
-███╗   ██╗██╗   ██╗██████╗ ███████╗██╗     ██████╗ 
-████╗  ██║██║   ██║██╔══██╗██╔════╝██║     ██╔══██╗
-██╔██╗ ██║██║   ██║██████╔╝███████╗██║     ██████╔╝
-██║╚██╗██║╚██╗ ██╔╝██╔══██╗╚════██║██║     ██╔═══╝ 
-██║ ╚████║ ╚████╔╝ ██║  ██║███████║███████╗██║     
-╚═╝  ╚═══╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     
-[NEURAL VISUALIZATION SYSTEM]
+╔════════════════════════════════════════════════════════╗
+║                                                        ║
+║   ███    ██ ██    ██ ██████  ███████ ██      ██████    ║
+║   ████   ██ ██    ██ ██   ██ ██      ██      ██   ██   ║
+║   ██ ██  ██ ██    ██ ██████  ███████ ██      ██████    ║
+║   ██  ██ ██  ██  ██  ██   ██      ██ ██      ██        ║
+║   ██   ████   ████   ██   ██ ███████ ███████ ██        ║
+║                                                        ║
+║             [ NEURAL VISUALIZATION SYSTEM ]            ║
+║     [ MAGI INTERFACE v1.0.3 ] [ BUILD: 2025.03.11 ]    ║
+║                                                        ║
+╚════════════════════════════════════════════════════════╝
 ```
-
-> [STATUS: OPERATIONAL] | [BUILD: 2025.03.11] | [VERSION: 1.0.3]
-
-![System Status](https://img.shields.io/badge/MAGI%20SYNC-ACTIVE-00ff00?style=for-the-badge)
-![Neural Status](https://img.shields.io/badge/NEURAL%20PATTERN-STABLE-00ff00?style=for-the-badge)
-
 <img src="images/NVRSLP-preview.png" alt="NVRSLP Interface" width="800px"/>
 
 </div>
@@ -97,3 +96,4 @@ ALL RIGHTS RESERVED © 2025
 `CONNECTION_CLOSED`
 
 </div>
+````
