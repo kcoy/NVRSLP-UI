@@ -187,6 +187,16 @@ const defaultSettings = {
       });
     });
 
+    document.getElementById('planet-select').addEventListener('change', function(e) {
+    const solarEffect = document.getElementById('solar-effect');
+    
+    if (e.target.value === 'sun') {
+        solarEffect.classList.add('active');
+    } else {
+        solarEffect.classList.remove('active');
+    }
+});
+
     Object.keys(textures).forEach(key => {
       if (key !== 'earth') {
         textures[key].onLoad = () => {
@@ -272,8 +282,9 @@ const defaultSettings = {
         }
       }
       
-      const pulseScale = 1 + 0.05 * Math.sin(Date.now() * 0.001);
-      planetSphere.scale.set(pulseScale, pulseScale, pulseScale);
+      // Remove or comment out the pulsing animation
+      // const pulseScale = 1 + 0.05 * Math.sin(Date.now() * 0.001);
+      // planetSphere.scale.set(pulseScale, pulseScale, pulseScale);
       
       if (Math.random() > 0.98) {
         lineMaterial.opacity = 0.1 + Math.random() * 0.5;
