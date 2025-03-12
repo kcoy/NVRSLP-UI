@@ -800,6 +800,8 @@ new Chart(resourceCtx, {
       renderer.render(scene, camera);
     });
 
+    // Comment out decryptor element references and logic
+    /*
     const encryptedText = document.getElementById('encrypted-text');
     const decryptedText = document.getElementById('decrypted-text');
     const messages = [
@@ -842,6 +844,7 @@ new Chart(resourceCtx, {
     }
 
     setInterval(updateDecryption, 100);
+    */
 
     resizeRenderer();
     animate();

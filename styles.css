@@ -343,28 +343,44 @@
   }
   
   .terminal {
-    font-family: 'Courier New', monospace;
-    color: #00FFFF;
-    font-size: clamp(0.6rem, 1.8vw, 0.7rem);
-    line-height: 1.2;
-    margin-top: 10px;
-    height: 120px;
-    overflow: hidden;
     position: relative;
-    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    height: 280px;  /* Reduced height */
+    overflow-y: auto;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #00FFFF;  /* Changed to cyan */
+    /* border: 1px solid rgba(0, 255, 255, 0.3); */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 60%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 60%,
+        transparent 100%
+    );
   }
   
   .terminal-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    animation: scroll 20s linear infinite;
+    padding-bottom: 40px;
+    animation: terminal-scroll 13s linear infinite;
   }
   
-  @keyframes scroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
+  @keyframes terminal-scroll {
+    0% { 
+        transform: translateY(0); 
+    }
+    100% { 
+        transform: translateY(-50%); 
+    }
+  }
+  
+  /* Add this to auto-scroll when content overflows */
+  .terminal:hover .terminal-content {
+    animation-play-state: paused;
   }
   
   footer {
