@@ -18,7 +18,7 @@
 
 View on Vercel https://nvrslp-ui.vercel.app
 
-</div>
+
 
 ## [SYSTEM OVERVIEW]
 
@@ -91,7 +91,7 @@ NVRSLP SYSTEMS DIVISION
 ALL RIGHTS RESERVED © 2025
 ```
 
-<div align="center">
+
 
 ---
 `TERMINATE_README.exe`
