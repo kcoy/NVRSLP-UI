@@ -1,7 +1,7 @@
 const container = document.getElementById('sphere-container');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 5;
+    camera.position.z = 7.8;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -43,7 +43,7 @@ const container = document.getElementById('sphere-container');
       moon: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_moon.jpg`)
     };
 
-    const geometry = new THREE.SphereGeometry(2, 32, 32);
+    const geometry = new THREE.SphereGeometry(3.25, 32, 32);
 const planetMaterial = new THREE.MeshPhongMaterial({
   color: 0xFFFFFF,
   transparent: true,
@@ -59,13 +59,14 @@ const lineMaterial = new THREE.LineBasicMaterial({
   opacity: 0.4 
 });
 const wireframeMesh = new THREE.LineSegments(wireframe, lineMaterial);
+wireframeMesh.scale.set(0.98, 0.98, 0.98); // Add this line to make wireframe slightly smaller
 
 const planetSphere = new THREE.Mesh(geometry, planetMaterial);
 const sphereGroup = new THREE.Group();
 sphereGroup.add(wireframeMesh);
 sphereGroup.add(planetSphere);
 
-const orbitGeometry = new THREE.TorusGeometry(3, 0.001, 16, 100);
+const orbitGeometry = new THREE.TorusGeometry(4.875, 0.001, 16, 100);
 const orbitMaterial = new THREE.MeshBasicMaterial({ 
   color: 0x00FFFF,
   transparent: true,
@@ -327,6 +328,15 @@ const defaultSettings = {
 
     const hexagons = document.querySelectorAll('.hexagon');
     hexagons.forEach((hex, index) => {
+      // Set case 1 elements to be initially hidden
+      if (index === 1) {
+        crosshairOverlayVisible = false;
+        orbitalPathVisible = false;
+        crosshairOverlay.style.display = 'none';
+        orbit.visible = false;
+        hex.classList.remove('active');
+      }
+      
       hex.addEventListener('click', () => {
         hex.classList.toggle('active');
         playAudio(buttonSound);

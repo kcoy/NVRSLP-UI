@@ -136,6 +136,7 @@
   #sphere-container {
     width: 100%;
     height: 100%;
+    transform: scale(0.9); /* Add this line to reduce the sphere size by 10% */
   }
 
   .holo-hud {
@@ -551,7 +552,7 @@
 
   .scan-progress circle {
     stroke: #00FFFF;
-    stroke-width: 60;
+    stroke-width: 33px;
     fill: none;
     stroke-dasharray: 753;
     stroke-dashoffset: 753;
@@ -912,8 +913,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 44vmin;  /* Reduced to match sphere size */
-    height: 44vmin; /* Reduced to match sphere size */
+    width: 45.5vmin;  /* Reduced to match sphere size */
+    height: 45.5vmin; /* Reduced to match sphere size */
     border-radius: 50%;
     box-shadow: 
       0 0 60px 10px rgba(255, 72, 0, 0.668),
@@ -948,3 +949,24 @@
       rgba(255, 72, 0, 0) 50%);
     filter: blur(4px);
 } */
+
+.crosshairs {
+    display: none;  /* Changed from opacity: 0 */
+    transition: opacity 0.3s ease;
+}
+
+.orbital-path {
+    display: none;  /* Changed from opacity: 0 */
+    transition: opacity 0.3s ease;
+}
+
+/* Classes to show them when needed */
+.crosshairs.visible {
+    display: block;
+    opacity: 1;
+}
+
+.orbital-path.visible {
+    display: block;
+    opacity: 1;
+}
