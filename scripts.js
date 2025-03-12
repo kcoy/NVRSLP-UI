@@ -803,11 +803,11 @@ new Chart(resourceCtx, {
     const encryptedText = document.getElementById('encrypted-text');
     const decryptedText = document.getElementById('decrypted-text');
     const messages = [
-      { encrypted: "0xFF12AB4C", decrypted: "ALERT: GRAVITATIONAL ANOMALY DETECTED, ORBITAL STABILITY AT RISK" },
-      { encrypted: "0xA1B2C3D4", decrypted: "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED, SHIELD INTEGRITY COMPROMISED" },
-      { encrypted: "0xE5F67489", decrypted: "CAUTION: THERMAL SPIKE DETECTED, CORE STABILITY AT RISK" },
-      { encrypted: "0xA1B2C345", decrypted: "ERROR: UNKNOWN SIGNAL INTERFERENCE, COMMUNICATIONS OFFLINE" },
-      { encrypted: "0xH2F67189", decrypted: "NOTICE: CORE STABILITY FLUCTUATING, ENERGY LEVELS CRITICAL" },
+      { encrypted: "0xFF12AB4C", decrypted: "ALERT: ORBITAL STABILITY AT RISK" },
+      { encrypted: "0xA1B2C3D4", decrypted: "WARNING: SHIELD INTEGRITY COMPROMISED" },
+      { encrypted: "0xE5F67489", decrypted: "CAUTION: CORE STABILITY AT RISK" },
+      { encrypted: "0xA1B2C345", decrypted: "ERROR: COMMUNICATIONS OFFLINE" },
+      { encrypted: "0xH2F67189", decrypted: "NOTICE: ENERGY LEVELS CRITICAL" },
       { encrypted: "0xH2F67189", decrypted: "SCANNING... 34%, SCANNING... 69%, ANALYZING... 100%" },
     ];
     let currentMessageIndex = 0;
