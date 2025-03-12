@@ -18,10 +18,10 @@
 ![System Status](https://img.shields.io/badge/MAGI%20SYNC-ACTIVE-00ff00?style=for-the-badge)
 ![Neural Status](https://img.shields.io/badge/NEURAL%20PATTERN-STABLE-00ff00?style=for-the-badge)
 
-<details>
+
 <summary>📸 View Interface Screenshot</summary>
 <img src="images/NVRSLP-preview.png" alt="NVRSLP Interface" width="800px"/>
-</details>
+
 
 </div>
 
