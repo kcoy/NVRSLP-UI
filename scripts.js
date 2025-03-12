@@ -787,28 +787,30 @@ new Chart(resourceCtx, {
     }
     setInterval(updateNetworkLatency, 3000);
     updateNetworkLatency();
+    
 
-    const rotationSlider = document.getElementById('rotation-slider');
-    const opacitySlider = document.getElementById('opacity-slider');
-    const shininessSlider = document.getElementById('shininess-slider');
+    // const rotationSlider = document.getElementById('rotation-slider');
+    // const opacitySlider = document.getElementById('opacity-slider');
+    // const shininessSlider = document.getElementById('shininess-slider');
 
-    rotationSlider.addEventListener('input', (e) => {
-      rotationSpeed = parseFloat(e.target.value);
-      rotationState = rotationSpeed === 0 ? 0 : (rotationSpeed > 0.001 ? 2 : 1);
-      hexagons[0].classList.toggle('active', rotationSpeed !== 0);
-    });
+    // rotationSlider.addEventListener('input', (e) => {
+    //   rotationSpeed = parseFloat(e.target.value);
+    //   rotationState = rotationSpeed === 0 ? 0 : (rotationSpeed > 0.001 ? 2 : 1);
+    //   hexagons[0].classList.toggle('active', rotationSpeed !== 0);
+    // });
 
-    opacitySlider.addEventListener('input', (e) => {
-      planetMaterial.opacity = parseFloat(e.target.value);
-      planetMaterial.needsUpdate = true;
-      renderer.render(scene, camera);
-    });
+    // opacitySlider.addEventListener('input', (e) => {
+    //   planetMaterial.opacity = parseFloat(e.target.value);
+    //   planetMaterial.needsUpdate = true;
+    //   renderer.render(scene, camera);
+    // });
 
-    shininessSlider.addEventListener('input', (e) => {
-      planetMaterial.shininess = parseFloat(e.target.value);
-      planetMaterial.needsUpdate = true;
-      renderer.render(scene, camera);
-    });
+    // shininessSlider.addEventListener('input', (e) => {
+    //   planetMaterial.shininess = parseFloat(e.target.value);
+    //   planetMaterial.needsUpdate = true;
+    //   renderer.render(scene, camera);
+    // });
+
 
     // Comment out decryptor element references and logic
     /*
@@ -968,3 +970,111 @@ window.addEventListener('load', initNeuralNetwork);
       return open.apply(this, args);
   };
 })();
+
+// function updateQuantumMetrics() {
+//   const entanglement = document.getElementById('entanglement-value');
+//   const qbits = document.getElementById('qbits-value');
+  
+//   // Random fluctuation in entanglement between 90-99.9%
+//   const entanglementValue = (90 + Math.random() * 9.9).toFixed(1);
+//   entanglement.textContent = `${entanglementValue}%`;
+  
+//   // Random fluctuation in qbits between 3,500-4,500
+//   const qbitValue = Math.floor(3500 + Math.random() * 1000);
+//   qbits.textContent = qbitValue.toLocaleString();
+  
+//   // Add warning class if entanglement drops below 92%
+//   if (parseFloat(entanglementValue) < 92) {
+//     entanglement.classList.add('warning-value');
+//   } else {
+//     entanglement.classList.remove('warning-value');
+//   }
+// }
+
+// // Update quantum metrics every 2 seconds
+// setInterval(updateQuantumMetrics, 2000);
+
+function initDimensionalAnalysis() {
+  const canvas = document.getElementById('dimension-viewer');
+  const ctx = canvas.getContext('2d');
+  
+  // Set canvas size with proper scaling
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  
+  const points = [];
+  for (let i = 0; i < 50; i++) {
+    points.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      z: Math.random() * 100,
+      // Reduce speed range from 2 to 0.5
+      speed: Math.random() * 0.5 + 0.1  // Changed from 2 + 1
+    });
+  }
+  
+  function animate() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    points.forEach(point => {
+      // Reduce z-axis movement speed
+      point.z += point.speed * 0.5;  // Added * 0.5 to slow down
+      if (point.z > 100) point.z = 0;
+      
+      const scale = point.z / 100;
+      const x = point.x + (canvas.width/2 - point.x) * scale;
+      const y = point.y + (canvas.height/2 - point.y) * scale;
+      
+      ctx.beginPath();
+      ctx.arc(x, y, scale * 3, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 255, 255, ${1 - scale})`;
+      ctx.fill();
+    });
+    
+    requestAnimationFrame(animate);
+  }
+  
+  animate();
+  
+  // Update dimensional metrics
+  function updateMetrics() {
+    const phaseShift = document.getElementById('phase-shift-value');
+    const membrane = document.getElementById('membrane-status');
+    const resonance = document.getElementById('resonance-value');
+    
+    // Random phase shift between 0.0001π and 0.01π
+    const phaseValue = (Math.random() * 0.01).toFixed(4);
+    phaseShift.textContent = `${phaseValue}π`;
+    
+    // Random membrane status
+    const membraneStability = Math.random();
+    if (membraneStability < 0.1) {
+      membrane.textContent = 'BREACH';
+      membrane.classList.add('breach');
+    } else {
+      membrane.textContent = 'STABLE';
+      membrane.classList.remove('breach');
+    }
+    
+    // Random resonance between 85% and 99%
+    const resonanceValue = (85 + Math.random() * 14).toFixed(1);
+    resonance.textContent = `${resonanceValue}%`;
+    
+    // Add warning class if phase shift is too high
+    if (parseFloat(phaseValue) > 0.005) {
+      phaseShift.classList.add('unstable');
+    } else {
+      phaseShift.classList.remove('unstable');
+    }
+  }
+  
+  // Increase update interval from 3000 to 5000ms
+  setInterval(updateMetrics, 5000);  // Changed from 3000
+}
+
+// Add to your existing initialization code
+window.addEventListener('load', initDimensionalAnalysis);

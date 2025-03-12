@@ -221,7 +221,7 @@
     font-size: clamp(0.9rem, 2.5vw, 1rem);
     position: sticky;
     top: 0;
-    background: rgba(20, 20, 20, 0.7);
+    /* background: rgba(20, 20, 20, 0.7); */
     z-index: 5;
     animation: flicker 3s infinite;
   }
@@ -302,7 +302,7 @@
   
   .status-fill {
     height: 100%;
-    background-color: #00FFFF;
+    background-color: hwb(180 0% 0%);
     width: 75%;
     animation: pulse 4s infinite;
   }
@@ -347,7 +347,7 @@
     position: relative;
     background: rgba(0, 0, 0, 0.3);
     padding: 10px;
-    height: 280px;  /* Reduced height */
+    height: 170px;  /* Reduced height */
     overflow-y: auto;
     font-family: monospace;
     font-size: 0.8rem;
@@ -969,4 +969,134 @@
 .orbital-path.visible {
     display: block;
     opacity: 1;
+}
+
+/* .quantum-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.quantum-state {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.quantum-wave {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #00FFFF;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.quantum-wave::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0) 70%);
+  animation: quantumWave 3s linear infinite;
+}
+
+.quantum-particles {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #FF4800;
+  border-radius: 50%;
+}
+
+.quantum-particles::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #FF4800;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 
+    -8px -8px 0 -1px #FF4800,
+    8px 8px 0 -1px #FF4800,
+    -8px 8px 0 -1px #FF4800,
+    8px -8px 0 -1px #FF4800;
+  animation: quantumParticles 4s linear infinite;
+}
+
+@keyframes quantumWave {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes quantumParticles {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+} */
+
+.dimension-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 0.5rem 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* border: 1px solid rgba(0, 255, 255, 0.2); */
+}
+
+.dimension-cube {
+  position: relative;
+  height: 150px;
+  border: 1px solid #00FFFF;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.dimension-cube canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.dimension-data {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dimension-data .data-item {
+  position: relative;
+  padding: 0.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 72, 0, 0.3);
+}
+
+#phase-shift-value.unstable {
+  color: #FF4800;
+  animation: pulse 2s infinite;
+}
+
+#membrane-status.breach {
+  color: #FF4800;
+  animation: flash 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  25% { opacity: 0; }
+  50% { opacity: 1; }
+  75% { opacity: 0; }
+  100% { opacity: 1; }
 }
