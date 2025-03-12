@@ -16,7 +16,7 @@
 ```
 <img src="images/NVRSLP-preview.png" alt="NVRSLP Interface" width="800px"/>
 
-View on Vercel -> https://nvrslp-ui.vercel.app/
+View on Vercel -> <a href"https://nvrslp-ui.vercel.app/" target="_new">nvrslp-ui.vercel.app</a>
 
 </div>
 
