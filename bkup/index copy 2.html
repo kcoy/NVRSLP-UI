@@ -47,12 +47,6 @@
         </select>
       </div>
       
-      <div class="solar-effect" id="solar-effect">
-        <div class="flame-ring"></div>
-        <div class="corona-outer"></div>
-        <div class="corona-inner"></div>
-      </div>
-
       <div id="crosshair-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; pointer-events: none; z-index: 5; display: flex; justify-content: center; align-items: center;">
         <div style="position: relative; width: clamp(150px, 50vw, 300px); height: clamp(150px, 50vw, 300px);">
           <div style="position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background-color: rgba(255, 72, 0, 0.7); transform: translateY(-50%);"></div>
@@ -153,9 +147,9 @@
           <h3>CONFIGURATION</h3>
           <div class="hexagon-grid">
             <div class="hexagon active" title="Toggle rotation speed (slow/fast/stop)"></div>
-            <div class="hexagon" title="Toggle crosshair and orbital path (off/on)"></div>
+            <div class="hexagon active" title="Toggle crosshair and orbital path (off/on)"></div>
             <div class="hexagon active" title="Toggle texture visibility (off/on)"></div>
-            <div class="hexagon active" title="Toggle wireframe visibility (off/on)"></div>
+            <div class="hexagon" title="Toggle wireframe visibility (off/on)"></div>
             <div class="hexagon active" title="Reset all settings"></div>
             <div class="hexagon active" title="Toggle HUD visibility (off/on)"></div>
           </div>
@@ -163,7 +157,7 @@
             <div class="data-item">
               <span class="data-label">SYNC:</span>
               <span class="data-value">84.3%</span>
-              <div class="tooltip">Synchronization with MAGI</div>  
+              <div class="tooltip">Synchronization with MAGI</div>
             </div>
             <div class="data-item">
               <span class="data-label">HARMONIC:</span>
@@ -227,11 +221,11 @@
           </div>
         </div>
 
-        <!-- <div class="data-section">
+        <div class="data-section">
           <h3>DECRYPTOR</h3>
           <div class="encrypted" id="encrypted-text"></div>
           <div class="decrypted" id="decrypted-text"></div>
-        </div> -->
+        </div>
         
         <div class="data-section">
           <h3>TERMINAL</h3>
@@ -291,5 +285,6 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+  <Analytics />
 </body>
 </html>

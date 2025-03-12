@@ -1,7 +1,7 @@
 const container = document.getElementById('sphere-container');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 7.8;
+    camera.position.z = 5;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
@@ -43,7 +43,7 @@ const container = document.getElementById('sphere-container');
       moon: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_moon.jpg`)
     };
 
-    const geometry = new THREE.SphereGeometry(3.25, 32, 32);
+    const geometry = new THREE.SphereGeometry(2, 32, 32);
 const planetMaterial = new THREE.MeshPhongMaterial({
   color: 0xFFFFFF,
   transparent: true,
@@ -59,14 +59,13 @@ const lineMaterial = new THREE.LineBasicMaterial({
   opacity: 0.4 
 });
 const wireframeMesh = new THREE.LineSegments(wireframe, lineMaterial);
-wireframeMesh.scale.set(0.98, 0.98, 0.98); // Add this line to make wireframe slightly smaller
 
 const planetSphere = new THREE.Mesh(geometry, planetMaterial);
 const sphereGroup = new THREE.Group();
 sphereGroup.add(wireframeMesh);
 sphereGroup.add(planetSphere);
 
-const orbitGeometry = new THREE.TorusGeometry(4.875, 0.001, 16, 100);
+const orbitGeometry = new THREE.TorusGeometry(3, 0.001, 16, 100);
 const orbitMaterial = new THREE.MeshBasicMaterial({ 
   color: 0x00FFFF,
   transparent: true,
@@ -188,16 +187,6 @@ const defaultSettings = {
       });
     });
 
-    document.getElementById('planet-select').addEventListener('change', function(e) {
-    const solarEffect = document.getElementById('solar-effect');
-    
-    if (e.target.value === 'sun') {
-        solarEffect.classList.add('active');
-    } else {
-        solarEffect.classList.remove('active');
-    }
-});
-
     Object.keys(textures).forEach(key => {
       if (key !== 'earth') {
         textures[key].onLoad = () => {
@@ -283,9 +272,8 @@ const defaultSettings = {
         }
       }
       
-      // Remove or comment out the pulsing animation
-      // const pulseScale = 1 + 0.05 * Math.sin(Date.now() * 0.001);
-      // planetSphere.scale.set(pulseScale, pulseScale, pulseScale);
+      const pulseScale = 1 + 0.05 * Math.sin(Date.now() * 0.001);
+      planetSphere.scale.set(pulseScale, pulseScale, pulseScale);
       
       if (Math.random() > 0.98) {
         lineMaterial.opacity = 0.1 + Math.random() * 0.5;
@@ -328,15 +316,6 @@ const defaultSettings = {
 
     const hexagons = document.querySelectorAll('.hexagon');
     hexagons.forEach((hex, index) => {
-      // Set case 1 elements to be initially hidden
-      if (index === 1) {
-        crosshairOverlayVisible = false;
-        orbitalPathVisible = false;
-        crosshairOverlay.style.display = 'none';
-        orbit.visible = false;
-        hex.classList.remove('active');
-      }
-      
       hex.addEventListener('click', () => {
         hex.classList.toggle('active');
         playAudio(buttonSound);
@@ -414,12 +393,12 @@ const defaultSettings = {
 
     const warningText = document.getElementById('warning-text');
     const warnings = [
-      "ALERT: GRAVITATIONAL ANOMALY DETECTED",
-      "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED",
-      "CAUTION: THERMAL SPIKE DETECTED",
-      "ERROR: UNKNOWN SIGNAL INTERFERENCE",
-      "NOTICE: CORE STABILITY FLUCTUATING",
-      "SCANNING... 34%, SCANNING... 69%, ANALYZING..."
+      "ALERT: GRAVITATIONAL ANOMALY DETECTED, ORBITAL STABILITY AT RISK",
+      "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED, SHIELD INTEGRITY COMPROMISED",
+      "CAUTION: THERMAL SPIKE DETECTED, CORE STABILITY AT RISK",
+      "ERROR: UNKNOWN SIGNAL INTERFERENCE, COMMUNICATIONS OFFLINE",
+      "NOTICE: CORE STABILITY FLUCTUATING, ENERGY LEVELS CRITICAL",
+      "SCANNING... 34%, SCANNING... 69%, ANALYZING... 100%"
     ];
     let currentWarningIndex = 0;
     let currentText = '';
@@ -810,16 +789,14 @@ new Chart(resourceCtx, {
       renderer.render(scene, camera);
     });
 
-    // Comment out decryptor element references and logic
-    /*
     const encryptedText = document.getElementById('encrypted-text');
     const decryptedText = document.getElementById('decrypted-text');
     const messages = [
-      { encrypted: "0xFF12AB4C", decrypted: "ALERT: ORBITAL STABILITY AT RISK" },
-      { encrypted: "0xA1B2C3D4", decrypted: "WARNING: SHIELD INTEGRITY COMPROMISED" },
-      { encrypted: "0xE5F67489", decrypted: "CAUTION: CORE STABILITY AT RISK" },
-      { encrypted: "0xA1B2C345", decrypted: "ERROR: COMMUNICATIONS OFFLINE" },
-      { encrypted: "0xH2F67189", decrypted: "NOTICE: ENERGY LEVELS CRITICAL" },
+      { encrypted: "0xFF12AB4C", decrypted: "ALERT: GRAVITATIONAL ANOMALY DETECTED, ORBITAL STABILITY AT RISK" },
+      { encrypted: "0xA1B2C3D4", decrypted: "WARNING: UNUSUAL ENERGY SIGNATURE DETECTED, SHIELD INTEGRITY COMPROMISED" },
+      { encrypted: "0xE5F67489", decrypted: "CAUTION: THERMAL SPIKE DETECTED, CORE STABILITY AT RISK" },
+      { encrypted: "0xA1B2C345", decrypted: "ERROR: UNKNOWN SIGNAL INTERFERENCE, COMMUNICATIONS OFFLINE" },
+      { encrypted: "0xH2F67189", decrypted: "NOTICE: CORE STABILITY FLUCTUATING, ENERGY LEVELS CRITICAL" },
       { encrypted: "0xH2F67189", decrypted: "SCANNING... 34%, SCANNING... 69%, ANALYZING... 100%" },
     ];
     let currentMessageIndex = 0;
@@ -854,7 +831,6 @@ new Chart(resourceCtx, {
     }
 
     setInterval(updateDecryption, 100);
-    */
 
     resizeRenderer();
     animate();

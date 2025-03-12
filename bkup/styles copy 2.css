@@ -51,6 +51,16 @@
     align-items: center;
     border: 1px solid #333;
     padding: 10px 20px;
+<<<<<<< HEAD
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0px,
+      rgba(0, 0, 0, 0.4) 2px,
+      transparent 2px,
+      transparent 4px
+    ), rgba(0, 0, 0, 0.7);
+=======
+>>>>>>> 026b0e123f196bd851825f999047862cac922f27
   }
   
   @media (max-width: 480px) {
@@ -136,7 +146,6 @@
   #sphere-container {
     width: 100%;
     height: 100%;
-    transform: scale(0.9); /* Add this line to reduce the sphere size by 10% */
   }
 
   .holo-hud {
@@ -344,44 +353,28 @@
   }
   
   .terminal {
+    font-family: 'Courier New', monospace;
+    color: #00FFFF;
+    font-size: clamp(0.6rem, 1.8vw, 0.7rem);
+    line-height: 1.2;
+    margin-top: 10px;
+    height: 120px;
+    overflow: hidden;
     position: relative;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    height: 280px;  /* Reduced height */
-    overflow-y: auto;
-    font-family: monospace;
-    font-size: 0.8rem;
-    color: #00FFFF;  /* Changed to cyan */
-    /* border: 1px solid rgba(0, 255, 255, 0.3); */
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 60%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to bottom,
-        black 60%,
-        transparent 100%
-    );
+    text-align: left;
   }
   
   .terminal-content {
-    padding-bottom: 40px;
-    animation: terminal-scroll 15s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: scroll 20s linear infinite;
   }
   
-  @keyframes terminal-scroll {
-    0% { 
-        transform: translateY(0); 
-    }
-    100% { 
-        transform: translateY(-50%); 
-    }
-  }
-  
-  /* Add this to auto-scroll when content overflows */
-  .terminal:hover .terminal-content {
-    animation-play-state: paused;
+  @keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
   }
   
   footer {
@@ -552,7 +545,7 @@
 
   .scan-progress circle {
     stroke: #00FFFF;
-    stroke-width: 33px;
+    stroke-width: 60;
     fill: none;
     stroke-dasharray: 753;
     stroke-dashoffset: 753;
@@ -890,83 +883,3 @@
     0%, 100% { opacity: 0.8; }
     50% { opacity: 1; text-shadow: 0 0 5px rgba(255, 72, 0, 0.8); }
   } */
-
-  .solar-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 3;
-  }
-
-  .solar-effect.active {
-    opacity: 1;
-  }
-
-  .flame-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 45.5vmin;  /* Reduced to match sphere size */
-    height: 45.5vmin; /* Reduced to match sphere size */
-    border-radius: 50%;
-    box-shadow: 
-      0 0 60px 10px rgba(255, 72, 0, 0.668),
-      0 0 120px 20px rgba(255, 160, 0, 0.4);
-    /* Remove flare animation */
-}
-
-.corona-outer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vmin;  /* Adjusted to be slightly larger than flame ring */
-    height: 50vmin;
-    background: radial-gradient(circle at center,
-      rgba(255, 72, 0, 0) 40%,
-      rgba(255, 160, 0, 0.2) 60%,
-      rgba(255, 72, 0, 0) 70%);
-    animation: rotate 60s linear infinite;  /* Keep only rotation */
-}
-
-/* .corona-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 32vmin;
-    height: 32vmin;
-    background: radial-gradient(circle at center,
-      rgba(255, 200, 0, 0.2) 30%,
-      rgba(255, 72, 0, 0.3) 40%,
-      rgba(255, 72, 0, 0) 50%);
-    filter: blur(4px);
-} */
-
-.crosshairs {
-    display: none;  /* Changed from opacity: 0 */
-    transition: opacity 0.3s ease;
-}
-
-.orbital-path {
-    display: none;  /* Changed from opacity: 0 */
-    transition: opacity 0.3s ease;
-}
-
-/* Classes to show them when needed */
-.crosshairs.visible {
-    display: block;
-    opacity: 1;
-}
-
-.orbital-path.visible {
-    display: block;
-    opacity: 1;
-}
