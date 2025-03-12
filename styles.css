@@ -302,14 +302,26 @@
   
   .status-fill {
     height: 100%;
-    background-color: hwb(180 0% 0%);
-    width: 75%;
-    animation: pulse 4s infinite;
+    background-color: #00FFFF;
+    width: 65%;
+    position: absolute;
+    left: 0;
+    animation: status-pulse 4s ease-in-out infinite;
   }
   
-  @keyframes pulse {
-    0%, 100% { opacity: 0.6; width: 70%; }
-    50% { opacity: 0.8; width: 85%; }
+  @keyframes status-pulse {
+    0% {
+      width: 65%;
+      opacity: 0.6;
+    }
+    50% {
+      width: 97%;
+      opacity: 0.8;
+    }
+    100% {
+      width: 65%;
+      opacity: 0.6;
+    }
   }
   
   .hexagon-grid {
