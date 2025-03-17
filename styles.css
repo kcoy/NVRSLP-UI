@@ -136,7 +136,22 @@
   #sphere-container {
     width: 100%;
     height: 100%;
-    transform: scale(0.9); /* Add this line to reduce the sphere size by 10% */
+    position: relative;
+  }
+
+  #sphere-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/space.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: -1;
   }
 
   .holo-hud {
@@ -276,7 +291,7 @@
   }
   
   .data-item:hover .tooltip {
-    display: block;
+    display: none;
   }
   
   .warning {
@@ -1058,8 +1073,8 @@
 
 .dimension-grid {
   display: grid;
-  gap: 1.5rem;
-  padding: 1rem;
+  /* gap: 1.5rem;
+  padding: 1rem; */
   background: rgba(0, 0, 0, 0.5);
   /* border: 2px solid rgba(0, 255, 255, 0.3); */
   position: relative;
@@ -1067,7 +1082,7 @@
 
 .dimension-cube {
   position: relative;
-  height: 180px; /* Increased height */
+  height: 140px; /* Increased height */
   border: 1px solid #00ffff7b; /* Thicker border */
   overflow: hidden;
   background: rgba(0, 0, 0, 0.6);
@@ -1084,8 +1099,8 @@
 
 .dimension-data {
   display: grid;
-  gap: 0.8rem;
-  padding: 0.5rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
   background: rgba(0, 0, 0, 0.4);
 }
 
