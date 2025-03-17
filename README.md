@@ -17,7 +17,6 @@
 <img src="images/NVRSLP-preview.png" alt="NVRSLP Interface" width="800px"/>
 
 View on Vercel -> <a href="https://nvrslp-ui.vercel.app/" target="_blank">nvrslp-ui.vercel.app</a><br>
-Planet textures need temp allow CORS -> <a href="https://cors-anywhere.herokuapp.com/" target="_blank">cors-anywhere.herokuapp.com</a>
 
 </div>
 
