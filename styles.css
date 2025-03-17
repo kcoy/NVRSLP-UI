@@ -1058,59 +1058,87 @@
 
 .dimension-grid {
   display: grid;
-  gap: 1rem;
-  padding: 0 0 0.5rem 0;
-  background: rgba(0, 0, 0, 0.3);
-  /* border: 1px solid rgba(0, 255, 255, 0.2); */
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  /* border: 2px solid rgba(0, 255, 255, 0.3); */
+  position: relative;
 }
 
 .dimension-cube {
   position: relative;
-  height: 150px;
-  border: 1px solid #00FFFF;
+  height: 180px; /* Increased height */
+  border: 1px solid #00ffff7b; /* Thicker border */
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
+  /* box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 255, 255, 0.1); */
+  /* animation: dimension-pulse 2s infinite; */
 }
 
-.dimension-cube canvas {
+#dimension-viewer {
   width: 100%;
   height: 100%;
 }
 
 .dimension-data {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .dimension-data .data-item {
   position: relative;
-  padding: 0.25rem;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 72, 0, 0.3);
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 72, 0, 0.4);
+  box-shadow: 0 0 10px rgba(255, 72, 0, 0.2);
+  transition: all 0.8s ease;
+}
+
+.dimension-data .data-item:hover {
+  border-color: rgba(255, 72, 0, 0.8);
+  box-shadow: 0 0 15px rgba(255, 72, 0, 0.4);
+  transform: scale(1.05);
+}
+
+@keyframes dimension-pulse {
+  0%, 100% { 
+    border-color: rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  }
+  50% { 
+    border-color: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  }
 }
 
 #phase-shift-value.unstable {
   color: #FF4800;
-  animation: pulse 2s infinite;
+  font-size: 1.1em;
+  text-shadow: 0 0 8px rgba(255, 72, 0, 0.8);
+  animation: phase-shift-pulse 1.5s infinite;
 }
 
 #membrane-status.breach {
   color: #FF4800;
-  animation: flash 1s infinite;
+  font-size: 1.1em;
+  text-shadow: 0 0 8px rgba(255, 72, 0, 0.8);
+  animation: membrane-flash 0.8s infinite;
 }
 
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+@keyframes phase-shift-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
 }
 
-@keyframes flash {
-  0% { opacity: 1; }
-  25% { opacity: 0; }
-  50% { opacity: 1; }
-  75% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes membrane-flash {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.5; transform: scale(1.1); }
+  50% { opacity: 1; transform: scale(1); }
+  75% { opacity: 0.5; transform: scale(1.1); }
 }
 
 #crosshair-overlay {
