@@ -66,7 +66,7 @@ const sphereGroup = new THREE.Group();
 sphereGroup.add(wireframeMesh);
 sphereGroup.add(planetSphere);
 
-const orbitGeometry = new THREE.TorusGeometry(4.875, 0.001, 16, 100);
+const orbitGeometry = new THREE.TorusGeometry(4.875, 0.03, 16, 100);
 const orbitMaterial = new THREE.MeshBasicMaterial({ 
   color: 0x00FFFF,
   transparent: true,
