@@ -18,12 +18,12 @@ const container = document.getElementById('sphere-container');
     scene.add(pointLight);
 
     const textureLoader = new THREE.TextureLoader();
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    // const proxy = 'https://cors-anywhere.herokuapp.com/';
     const textures = {
-      sun: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_sun.jpg`),
-      mercury: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_mercury.jpg`),
-      venus: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg`),
-      earth: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg`, 
+      sun: textureLoader.load(`images/2k_sun.jpg`),
+      mercury: textureLoader.load(`images/2k_mercury.jpg`),
+      venus: textureLoader.load(`images/2k_venus_surface.jpg`),
+      earth: textureLoader.load(`images/2k_earth_daymap.jpg`, 
         () => {
           console.log('Earth texture loaded successfully');
           planetMaterial.map = textures.earth;
@@ -35,12 +35,12 @@ const container = document.getElementById('sphere-container');
         undefined, 
         (err) => console.error('Earth texture failed:', err.message || 'Unknown error')
       ),
-      mars: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_mars.jpg`),
-      jupiter: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg`),
-      saturn: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_saturn.jpg`),
-      uranus: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_uranus.jpg`),
-      neptune: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_neptune.jpg`),
-      moon: textureLoader.load(`${proxy}https://www.solarsystemscope.com/textures/download/2k_moon.jpg`)
+      mars: textureLoader.load(`images/2k_mars.jpg`),
+      jupiter: textureLoader.load(`images/2k_jupiter.jpg`),
+      saturn: textureLoader.load(`images/2k_saturn.jpg`),
+      uranus: textureLoader.load(`images/2k_uranus.jpg`),
+      neptune: textureLoader.load(`images/2k_neptune.jpg`),
+      moon: textureLoader.load(`images/2k_moon.jpg`)
     };
 
     const geometry = new THREE.SphereGeometry(3.25, 32, 32);
