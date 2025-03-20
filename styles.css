@@ -940,8 +940,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 45.5vmin;  /* Reduced to match sphere size */
-    height: 45.5vmin; /* Reduced to match sphere size */
+    width: 50.5vmin;  /* Reduced to match sphere size */
+    height: 50.5vmin; /* Reduced to match sphere size */
     border-radius: 50%;
     box-shadow: 
       0 0 60px 10px rgba(255, 72, 0, 0.668),
